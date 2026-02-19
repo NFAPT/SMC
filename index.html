@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Calibration Mode – Joel Vieira dos Reis</title>
+    <meta name="description" content="Aligning Decision Vectors in an Age of Systemic Volatility. A structural framework for navigating uncertainty across capital, enterprise, and personal strategy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --slate: #1a1f2e;
+            --slate-light: #252b3d;
+            --gold: #c9a84c;
+            --gold-dim: #a08535;
+            --cream: #e8e2d4;
+            --cream-dim: #b0a998;
+        }
+
+        body {
+            background-color: var(--slate);
+            color: var(--cream);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeIn 1.8s ease-out 0.2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .cover {
+            width: 220px;
+            height: auto;
+            box-shadow: 
+                0 4px 20px rgba(0, 0, 0, 0.5),
+                0 0 60px rgba(201, 168, 76, 0.06);
+            margin-bottom: 2.8rem;
+            opacity: 0;
+            animation: coverReveal 2s ease-out 0.6s forwards;
+        }
+
+        @keyframes coverReveal {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.65rem;
+            color: var(--gold);
+            letter-spacing: 0.04em;
+            line-height: 1.35;
+            margin-bottom: 0.6rem;
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--cream-dim);
+            letter-spacing: 0.02em;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+
+        .author {
+            font-size: 0.78rem;
+            color: var(--cream-dim);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 2.6rem;
+        }
+
+        .cta {
+            display: inline-block;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 0.82rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--slate);
+            background-color: var(--gold);
+            text-decoration: none;
+            padding: 0.75rem 2.4rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .cta:hover {
+            background-color: var(--cream);
+            color: var(--slate);
+        }
+
+        .divider {
+            width: 40px;
+            height: 1px;
+            background-color: var(--gold-dim);
+            margin: 3rem 0;
+            opacity: 0.4;
+        }
+
+        .backcover {
+            width: 340px;
+            max-width: 90vw;
+            height: auto;
+            box-shadow: 
+                0 4px 20px rgba(0, 0, 0, 0.5),
+                0 0 60px rgba(201, 168, 76, 0.04);
+            opacity: 0;
+            animation: coverReveal 2s ease-out 1s forwards;
+        }
+
+        .contact {
+            margin-top: 3rem;
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            color: var(--cream-dim);
+        }
+
+        .contact a {
+            color: var(--cream-dim);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(176, 169, 152, 0.3);
+            transition: border-color 0.3s ease;
+        }
+
+        .contact a:hover {
+            border-color: var(--gold);
+            color: var(--cream);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(201, 168, 76, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201, 168, 76, 0.015) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 480px) {
+            .cover { width: 180px; margin-bottom: 2.2rem; }
+            .backcover { width: 280px; }
+            .title { font-size: 1.4rem; }
+            .page { padding: 3rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <img class="cover" src="cover.jpg" alt="Strategic Calibration Mode – Book Cover">
+        <div class="title">Strategic Calibration Mode</div>
+        <div class="subtitle">Aligning Decision Vectors in an Age of Systemic Volatility</div>
+        <div class="author">Joel Vieira dos Reis</div>
+        <a class="cta" href="https://www.amazon.com/dp/XXXXXXXXXX" target="_blank" rel="noopener">Available on Amazon</a>
+        <div class="divider"></div>
+        <img class="backcover" src="backcover.png" alt="Strategic Calibration Mode – Back Cover">
+        <div class="contact"><a href="mailto:scm@joelreis.eu">scm@joelreis.eu</a></div>
+    </div>
+</body>
+</html>
