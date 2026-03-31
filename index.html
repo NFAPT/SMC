@@ -24,26 +24,73 @@
             --cream-dim: #b0a998;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--slate);
             color: var(--cream);
             font-family: 'DM Sans', sans-serif;
             font-weight: 300;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow-x: hidden;
         }
 
-        .page {
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.4rem;
+            padding: 1rem 2rem;
+            background-color: rgba(26, 31, 46, 0.88);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+        }
+
+        nav a {
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--cream-dim);
+            text-decoration: none;
+            transition: color 0.25s ease;
+            padding: 0.2rem 0;
+            border-bottom: 1px solid transparent;
+            transition: color 0.25s ease, border-color 0.25s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+            border-bottom-color: rgba(201, 168, 76, 0.4);
+        }
+
+        nav a.nav-amazon {
+            color: var(--gold);
+        }
+
+        nav a.nav-amazon:hover {
+            color: var(--cream);
+            border-bottom-color: rgba(232, 226, 212, 0.4);
+        }
+
+        /* ── HERO (existing content) ── */
+        #top {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 4rem 2rem;
+            padding: 7rem 2rem 5rem;
             text-align: center;
             max-width: 600px;
+            margin: 0 auto;
             opacity: 0;
             animation: fadeIn 1.8s ease-out 0.2s forwards;
         }
@@ -154,6 +201,143 @@
             color: var(--cream);
         }
 
+        /* ── SECTION SHARED ── */
+        .section {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            border-top: 1px solid rgba(201, 168, 76, 0.12);
+        }
+
+        .section-label {
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold-dim);
+            margin-bottom: 0.6rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: var(--gold);
+            letter-spacing: 0.03em;
+            margin-bottom: 2.5rem;
+        }
+
+        /* ── RESOURCES ── */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .resource-item {
+            background-color: var(--slate-light);
+            border: 1px solid rgba(201, 168, 76, 0.12);
+            overflow: hidden;
+            cursor: pointer;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .resource-item:hover {
+            border-color: rgba(201, 168, 76, 0.45);
+            transform: translateY(-2px);
+        }
+
+        .resource-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .resource-caption {
+            padding: 0.65rem 0.9rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--cream-dim);
+            border-top: 1px solid rgba(201, 168, 76, 0.08);
+        }
+
+        /* ── LIGHTBOX ── */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background-color: rgba(16, 19, 28, 0.94);
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 90vh;
+            box-shadow: 0 8px 48px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 1.4rem;
+            right: 1.6rem;
+            font-size: 1.4rem;
+            color: var(--cream-dim);
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+            transition: color 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            color: var(--gold);
+        }
+
+        /* ── VIDEOS ── */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .video-item {
+            background-color: var(--slate-light);
+            border: 1px solid rgba(201, 168, 76, 0.1);
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .video-item:hover {
+            border-color: rgba(201, 168, 76, 0.35);
+        }
+
+        .video-item iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        .video-placeholder {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(176, 169, 152, 0.3);
+        }
+
+        /* ── GRID BG ── */
         body::before {
             content: '';
             position: fixed;
@@ -169,21 +353,35 @@
             z-index: 0;
         }
 
-        .page {
+        nav, #top, .section {
             position: relative;
             z-index: 1;
         }
 
+        /* ── RESPONSIVE ── */
         @media (max-width: 480px) {
             .cover { width: 180px; margin-bottom: 2.2rem; }
             .backcover { width: 280px; }
             .title { font-size: 1.4rem; }
-            .page { padding: 3rem 1.5rem; }
+            #top { padding: 6rem 1.5rem 4rem; }
+            .section { padding: 3.5rem 1.5rem; }
+            nav { gap: 1.4rem; }
+            .videos-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="page">
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#top">Top</a>
+        <a href="https://www.amazon.com/dp/XXXXXXXXXX" target="_blank" rel="noopener" class="nav-amazon">Amazon</a>
+        <a href="#resources">Resources</a>
+        <a href="#videos">Videos</a>
+    </nav>
+
+    <!-- HERO -->
+    <div id="top">
         <img class="cover" src="cover.jpg" alt="Strategic Calibration Mode – Book Cover">
         <div class="title">Strategic Calibration Mode</div>
         <div class="subtitle">Aligning Decision Vectors in an Age of Systemic Volatility</div>
@@ -191,7 +389,58 @@
         <a class="cta" href="https://www.amazon.com/dp/XXXXXXXXXX" target="_blank" rel="noopener">Available on Amazon</a>
         <div class="divider"></div>
         <img class="backcover" src="backcover.png" alt="Strategic Calibration Mode – Back Cover">
-        <div class="contact"><a href="mailto:scm@joelreis.eu">scm@joelreis.eu</a></div>
+        <div class="contact"><a href="/cdn-cgi/l/email-protection#592a3a341933363c352b3c302a773c2c"><span class="__cf_email__" data-cfemail="8dfeeee0cde7e2e8e1ffe8e4fea3e8f8">[email&#160;protected]</span></a></div>
     </div>
+
+    <!-- RESOURCES -->
+    <section id="resources" class="section">
+        <div class="section-label">Infographics &amp; Materials</div>
+        <div class="section-title">Resources</div>
+        <div class="resources-grid">
+            <div class="resource-item" onclick="openLightbox('infograph_EN2.png')">
+                <img src="infograph_EN2.png" alt="SCM: Navigating Volatility Through Structural Coherence">
+                <div class="resource-caption">SCM — Navigating Volatility Through Structural Coherence</div>
+            </div>
+            <div class="resource-item" onclick="openLightbox('infograph_EN3.png')">
+                <img src="infograph_EN3.png" alt="SCM: Decision-Making in an Age of Volatility">
+                <div class="resource-caption">SCM — Decision-Making in an Age of Volatility</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <!-- VIDEOS -->
+    <section id="videos" class="section">
+        <div class="section-label">Watch</div>
+        <div class="section-title">Videos</div>
+        <div class="videos-grid">
+            <!-- Substituir src pelo embed do YouTube:
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+            </div>
+            -->
+            <div class="video-item"><span class="video-placeholder">YouTube embed 01</span></div>
+            <div class="video-item"><span class="video-placeholder">YouTube embed 02</span></div>
+        </div>
+    </section>
+
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('open');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+            document.getElementById('lightbox-img').src = '';
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
 </body>
 </html>
